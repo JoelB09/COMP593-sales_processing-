@@ -75,14 +75,17 @@ def split_sales_into_orders(sales_csv, order_dir):
         sheet_name ='Order #' + str(order_id)
         order_df.to_excel(order_file_path, index=False, sheet_name=sheet_name)
 
-        # Price formatting
+        # Price formation
         writer = pd.ExcelWriter(sales_dataframe, engine='xlsxwriter')  
         order_df.to_excel(writer, index=False, sheetname= 'report') 
-        workbook = writer. book
+        workbook = writer.book
         worksheet = writer.sheets['report'] 
 
         # Adding money format for cells with moneyy
-        money_fmt = workbook.add_format({sales_dataframe: '$34.47, 9982.25', 'bold': TRUE}) 
+        money_fmt = workbook.add_format({sales_dataframe: '$34.47, 9982.25', 'bold': True}) 
+
+        # Add a percent format with 1 decimal point
+        percent_fmt = workbook.add_format({sales_dataframe: '0.0%', 'bold': True})
 
 
 
