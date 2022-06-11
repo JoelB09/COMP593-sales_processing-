@@ -1,4 +1,3 @@
-from pickle import TRUE
 from sys import argv, exit   
 import os 
 from datetime import date 
@@ -85,7 +84,7 @@ def split_sales_into_orders(sales_csv, order_dir):
         # Adding money format for cells with moneyy
         money_fmt = workbook.add_format({sales_dataframe: '$34.47, 9982.25', 'bold': TRUE}) 
 
-        
+
 
 
 sales_csv = get_sales_csv()
